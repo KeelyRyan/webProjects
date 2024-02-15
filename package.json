@@ -1,0 +1,11 @@
+{
+  "name": "blogwebsite",
+  "version": "1.0.0",
+  "description": "Blog website exercise using ejs, node, javaScript, HTML, CSS. Capstone project from Web Dev Bootcamp.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Keely Ryan",
+  "license": "ISC"
+}
