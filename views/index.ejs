@@ -1,12 +1,29 @@
 <%- include("partials/header.ejs") %>
 
-<h1>Welcome to KvK blogspot!</h1>
 
-<form action="/newPost" method="GET">
-    <input type="submit" value="New Post">
-  </form>
+  <div class="container-md">
+    <div class="row titleRow">
+      <h1>Welcome to KvK blogspot!</h1></div>
+      <div class="row">
+      <div class="col">
+        <img src="https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg" alt="" style="width: 50%;">
+      </div>
+      <div class="col"> 
+        <h2>Latest Posts</h2>
+        <ol>
+          <li>Post 1</li>
+          <li>Post 2</li>
+          <li>Post 3</li>
+        </ol>
 
 
+        <form action="/newPost" method="GET">
+          <input type="submit" value="New Post">
+        </form>
+      </div>
+    </div>
+    </div>
+  </div>
 
 
 <%- include("partials/footer.ejs") %>

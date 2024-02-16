@@ -4,10 +4,6 @@
 #ADBC9F gray/green
 #FBFADA cream*/
 
-html,
-body {
-  height: 100%;
-}
 
 body {
   display: flex;
@@ -21,13 +17,11 @@ footer {
   flex: 0 0 auto;
 }
 
-.navbar {
+.navbar, .nav-link {
   background: #ADBC9F;
   color: #fbfada;
 }
-.nav-link{
-    color: #fbfada;
-}
+
 
 main {
   text-align: left;
@@ -36,12 +30,24 @@ main {
   background-color: #fbfada;
 }
 
-h1, p {
+.container-md {
     width: 90vw;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding: 5% 10% 5%;
 }
 
+h1{
+ padding-bottom: 20px;
+
+}
+.titleRow{
+  text-align: center;
+}
+.row img{
+  position:relative;
+  left: 25%;
+  padding: 10px;
+ 
+}
 footer {
   position: relative;
   width: 100%;
@@ -113,6 +119,6 @@ footer .wave#wave4 {
 
 @media (min-width: 992px){
     .form-field{
-        width: 50%;
+        width: 75%;
     }
 }
