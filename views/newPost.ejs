@@ -1,19 +1,22 @@
 <%- include("partials/header.ejs") %>
 
 <div class="container-md form-field">
-<form class="row g-3">
+<form class="row g-3" action="/submit" method="POST">
     <div class="col-md-6">
         <label for="inputName" class="form-label">Name</label>
-        <input type="text" class="form-control" id="inputName" placeholder="Name">
+        <input type="text" class="form-control" name="inputName" placeholder="Name">
       </div>
     <div class="col-md-6">
       <label for="inputEmail" class="form-label">Email</label>
-      <input type="email" class="form-control" id="inputEmail" placeholder="email">
+      <input type="email" class="form-control" name="inputEmail" placeholder="email">
     </div>
-
+    <div class="col-md-12">
+      <label for="inputTitle" class="form-label">Title</label>
+      <input type="text" class="form-control" name="inputTitle" placeholder="Title">
+    </div>
     <div class="col-md-12">
         <label for="inputPost" class="form-label">Post</label>
-        <textarea class="form-control" id="inputPost" placeholder="Post text goes here...."></textarea>
+        <textarea class="form-control" name="inputPost" placeholder="Post text goes here...."></textarea>
       </div>
 
     <div class="col-12">

@@ -9,14 +9,26 @@
         <img src="https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg" alt="" style="width: 50%;">
       </div>
       <div class="col"> 
-        <h2>Latest Posts</h2>
-        <ol>
-          <li>Post 1</li>
-          <li>Post 2</li>
-          <li>Post 3</li>
-        </ol>
-
-
+        <h2>Latest Posts</h2><% if (posts.length>0) { %>
+            <% posts.forEach((post) => { %>
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title" name="postNumber"><%= post.postId %></h5>
+                  <h6 class="card-subtitle mb-2 text-body-secondary"><%= post.user %></h6>
+                  <a href="/post/<%= post.postId %>">
+                    <%= post.postTitle %>
+                </a>
+                %>
+                <form action="/delete/<%= post.postId %>" method="DELETE">
+                  <input type="submit" value="Delete">
+                </form>
+                </div>
+              </div> 
+              <%}) %>
+          <% } else { %>
+            <p>No posts yet!</p>
+            <% } %>
+       %>
         <form action="/newPost" method="GET">
           <input type="submit" value="New Post">
         </form>

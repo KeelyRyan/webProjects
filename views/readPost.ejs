@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs") %>
+
+<% if (locals.post) { %>
+
+          <h2 ><%= post.postId %> <%= post.postTitle %> </h2>
+          <h3><%= post.user %></h3>
+          <p><%= post.postBody %></p>
+          <a href="/">Back</a>
+        </a>
+        </div>
+      </div> 
+  <% } else { %>
+    <p>No posts yet!</p>
+    <% } %>
+%>
+          
+    <%- include("./partials/footer.ejs") %>
+
+   
+
+<%- include("partials/footer.ejs") %>
