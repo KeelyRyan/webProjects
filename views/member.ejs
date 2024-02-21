@@ -13,12 +13,19 @@
             <% posts.forEach((post) => { %>
               <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                  <h5 class="card-title"><%= post.postTitle %></h5>
+                  <h5 class="card-title" name="postNumber"><%= post.postId %></h5>
                   <h6 class="card-subtitle mb-2 text-body-secondary"><%= post.user %></h6>
                   <a href="/readPost/<%= post.postId %>">
-                    <button class="btn btn-primary">Read</button>
+                    <%= post.postTitle %>
                 </a>
                 %>
+                <form action="/updatePost/<%= post.postId %>">
+                  <input type="submit" value="Update">
+                </form>
+                <form action="/delete/<%= post.postId %>" method="DELETE">
+                  <input type="submit" value="Delete">
+                </form>
+          
                 </div>
               </div> 
               <%}) %>
@@ -26,6 +33,9 @@
             <p>No posts yet!</p>
             <% } %>
        %>
+        <form action="/newPost" method="GET">
+          <input type="submit" value="New Post">
+        </form>
       </div>
     </div>
     </div>
