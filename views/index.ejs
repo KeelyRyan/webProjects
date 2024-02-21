@@ -19,6 +19,9 @@
                     <%= post.postTitle %>
                 </a>
                 %>
+                <form action="/post/<%= post.postId %>">
+                  <input type="submit" value="Update">
+                </form>
                 <form action="/delete/<%= post.postId %>" method="DELETE">
                   <input type="submit" value="Delete">
                 </form>
