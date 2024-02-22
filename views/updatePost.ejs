@@ -5,10 +5,10 @@
 <div class="container-md form-field">
     <div class="row">
         <div class="col-12">
-          <button class="btn btn-outline-secondary" onclick="history.back()" >Back</button>
+            <a href="/"> <button class="btn btn-outline-secondary" >Back</button></a>
         </div>
     </div>
-<form class="row g-3" action="/updatePost/<%= post.postId %>" method="POST">
+<form class="row g-3" action="/update/<%= post.postId %>" method="POST">
     <div class="col-md-6">
         <label for="inputName" class="form-label">Name</label>
         <input type="text" class="form-control" name="inputName" placeholder= <%= post.user %> readonly>
@@ -19,11 +19,11 @@
     </div>
     <div class="col-md-12">
       <label for="inputTitle" class="form-label">Title</label>
-      <input type="text" class="form-control" name="inputTitle" placeholder=<%= post.postTitle %>>
+      <input type="text" class="form-control" name="inputTitle" value="<%= post.postTitle %>">
     </div>
     <div class="col-md-12">
         <label for="inputPost" class="form-label">Post</label>
-        <textarea class="form-control" name="inputPost" placeholder=<%= post.postBody %>></textarea>
+        <textarea class="form-control" name="inputPost" rows="10"><%= post.postBody %></textarea>
       </div>
       <div class="col-12">
         <button type="update" class="btn btn-primary">Update</button>

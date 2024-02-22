@@ -19,12 +19,17 @@
                     <%= post.postTitle %>
                 </a>
                 %>
-                <form action="/updatePost/<%= post.postId %>">
+                <div class="row">
+                  <div class="col-md-6">            
+                  <form action="/updatePost/<%= post.postId %>">
                   <input type="submit" value="Update">
-                </form>
-                <form action="/delete/<%= post.postId %>" method="DELETE">
-                  <input type="submit" value="Delete">
-                </form>
+                </form></div>
+                <div class="col-md-6">
+                  <form action="/delete/<%= post.postId %>" method="DELETE">
+                    <input type="submit" value="Delete">
+                  </form>
+              </div>
+
           
                 </div>
               </div> 
@@ -32,11 +37,11 @@
           <% } else { %>
             <p>No posts yet!</p>
             <% } %>
-       %>
+       %></div>
         <form action="/newPost" method="GET">
           <input type="submit" value="New Post">
         </form>
-      </div>
+      
     </div>
     </div>
   </div>

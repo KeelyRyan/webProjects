@@ -9,8 +9,8 @@ const data = {
   posts: postsList  };
 const userName = "Admin";
 const password = "passwordAdmin";
-const attemptName = "";
-const attemptPassword = "";
+let attemptName = "";
+let attemptPassword = "";
 
 app.use(express.static("public"));
 
@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   const data = {
     posts: postsList  };
-    if (attemptName && attemptPassword){
+    if (attemptName){
       res.render("member.ejs", data);
     }else{
     res.render("index.ejs", data);
@@ -28,9 +28,9 @@ app.get("/", (req, res) => {
 
 app.post("/login", (req, res) => {
   try{
-  const attemptName = (req.body["loginName"]);
-  const attemptPassword = (req.body["loginPassword"]);
-  console.log(attemptName, attemptPassword);
+  attemptName = (req.body["loginName"]);
+  attemptPassword = (req.body["loginPassword"]);
+  //console.log(attemptName, attemptPassword);
   if(attemptName == userName && attemptPassword == password){
     res.render("member.ejs", data);
   }else {
@@ -83,7 +83,7 @@ app.get("/newPost/:id", (req, res) => {
 app.get("/updatePost/:id", (req, res) => {
   var postId = parseInt(req.params.id);
   var post = postsList.find(post => post.postId === postId);
-  res.render("readPost.ejs", {post});
+  res.render("updatePost.ejs", {post});
 });
 
 app.get("/readPost/:id", (req, res) => {
@@ -96,10 +96,10 @@ app.post("/update/:id", (req, res) => {
   var postId = parseInt(req.params.id);
   var post = postsList.find(post => post.postId === postId);
   if(req.body["inputTitle"]){
-  post.postTitle = (req.body["inputTitle"]); }
+  post.postTitle = req.body["inputTitle"]}
   if (req.body["inputPost"]){
   post.postBody = (req.body["inputPost"]); }
-  console.log(postsList[postId-1], post.postBody, post.postTitle);
+  //console.log(postsList[postId-1], post.postBody, );
   res.render("postConfirm.ejs");
 });
 
