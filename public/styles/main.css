@@ -2,14 +2,14 @@
 #12372A Dark 
 #436850 medium
 #ADBC9F gray/green
-#FBFADA cream*/
+#fcfcf5 cream*/
 
 
 body {
   display: flex;
   flex-direction: column;
   justify-content: stretch;
-  background-color: #fbfada;
+  background-color: #fcfcf5;
 }
 
 header,
@@ -19,13 +19,13 @@ footer {
 
 .navbar, .nav-link {
   background: #ADBC9F;
-  color: #fbfada;
+  color: #fcfcf5;
 }
 main {
   text-align: left;
   padding: 5vmin 50vmin 25vmin;
   flex: 1 0 auto;
-  background-color: #fbfada;
+  background-color: #fcfcf5;
 }
 
 .container-md {
@@ -36,6 +36,13 @@ main {
 h1{
  padding-bottom: 20px;
 
+}
+.accordion{
+  border-color: #12372A;
+  border-width: 2px;
+  border-style: groove;
+
+  
 }
 .btn-primary{
 background-color: #12372A;
@@ -49,11 +56,6 @@ border-color: #12372A;
 .modal-title, .form-label {
   color: #12372A;
 }
-.incorrect {
-  animation: shake 0.5s;
-  animation-iteration-count: infinite;
-}
-
 
 .titleRow{
   text-align: center;
@@ -62,8 +64,13 @@ border-color: #12372A;
   position:relative;
   left: 25%;
   padding: 10px;
- 
 }
+.front-page-col, #newPostBtn{
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
 footer {
   position: relative;
   width: 100%;
@@ -133,19 +140,6 @@ footer .wave#wave4 {
   }
 }
 
-@keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
 @media (min-width: 992px){
     .form-field{
         width: 75%;

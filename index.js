@@ -1,5 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
+import {alert} from "node-popup";
 
 const app = express();
 const port = 3000;
@@ -9,7 +10,7 @@ const data = {
   posts: postsList  };
 const userName = "Admin";
 const password = "passwordAdmin";
-let attemptName = "";
+let attemptName = ""; 
 let attemptPassword = "";
 
 app.use(express.static("public"));
@@ -34,7 +35,8 @@ app.post("/login", (req, res) => {
   if(attemptName == userName && attemptPassword == password){
     res.render("member.ejs", data);
   }else {
-    res.send("<div align ='center'><h2>Invalid email or password</h2></div><br><br><div align ='center'><a href='/'>login again</a></div>");
+    // alert('Login Failed. Please check username and password.');  
+    // next(); 
   }
 }catch{
   res.send("Internal server error");
@@ -56,11 +58,11 @@ app.post("/submit", (req, res) => {
   const userEmail = (req.body["inputEmail"]);
   const newTitle = (req.body["inputTitle"]);
   const newPost = (req.body["inputPost"]);
-  const addNewPost = {postId:x, user:userName, email:userEmail, postTitle: newTitle, postBody:newPost};
-  postsList.push(addNewPost);
+  const post = {postId:x, user:userName, email:userEmail, postTitle: newTitle, postBody:newPost};
+  postsList.push(post);
 
   x ++; 
-  res.render("postConfirm.ejs", addNewPost);
+  res.render("readPost.ejs", {post});
 }catch{
   res.send("Internal server error please refresh the page.");
 }
@@ -100,13 +102,16 @@ app.post("/update/:id", (req, res) => {
   if (req.body["inputPost"]){
   post.postBody = (req.body["inputPost"]); }
   //console.log(postsList[postId-1], post.postBody, );
-  res.render("postConfirm.ejs");
+  res.render("readPost.ejs", {post});
 });
 
 app.get("/delete/:id", (req, res) => {
   
   var postId = parseInt(req.params.id);
-  var post = postsList.pop(post => post.postId === postId);
+  var post = postsList.find(post => post.postId === postId);
+  var index = postsList.indexOf(post);
+  postsList.splice(index, 1);
+
   if (attemptName && attemptPassword){
     res.render("member.ejs", data);
   }else{
