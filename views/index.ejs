@@ -20,7 +20,7 @@
                     </button>
                   </h2>
                   <div id="flush-collapse-<%= post.postId %>" class="accordion-collapse collapse" aria-labelledby="flush-heading-<%= post.postId %>" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body"><div class="row"><%= post.postBody%></div>
+                    <div class="accordion-body"  style= "height:10%" ><div class="row"><%= post.postBody%></div>
                     <div class="row">
                         <div class="col-md-6">            
                         <form action="/readPost/<%= post.postId %>">
