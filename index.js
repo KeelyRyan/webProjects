@@ -41,12 +41,13 @@ app.post("/login", (req, res) => {
 }catch{
   res.send("Internal server error");
 }
-});
+}); 
 
 app.get("/about", (req, res) => {
-  res.render("about.ejs");
+  var pageName = { name: "/about"};
+  res.render("about.ejs", pageName);
 });
-
+ 
 app.get("/newPost", (req, res) => {
   res.render("newPost.ejs");
 });
